@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class EightQueensSimplified extends JFrame {
+public class EightQueens extends JFrame {
     private static final int BOARD_SIZE = 8;
     private JPanel chessBoard;
     private JButton solveBacktrackingBtn;
@@ -19,10 +19,10 @@ public class EightQueensSimplified extends JFrame {
     private int backtrackingSteps = 0;
     private int constrainedAttempts = 0;
 
-    public EightQueensSimplified() {
+    public EightQueens() {
         setTitle("8-Queens Problem");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(700, 600); // Smaller width since we removed the sidebar
+        setSize(700, 600); 
         setLayout(new BorderLayout());
 
         initializeComponents();
@@ -167,6 +167,8 @@ public class EightQueensSimplified extends JFrame {
         });
     }
 
+    // ACTUAL ALGORITHM HERE - Recursive Backtracking, checks all possible squares and
+    // backtracks if none are found in the current column
     private boolean solveBacktracking(int col) {
         backtrackingSteps++;
         if (col >= BOARD_SIZE) return true;
@@ -218,6 +220,7 @@ public class EightQueensSimplified extends JFrame {
         });
     }
 
+    // Checks if current block is safe
     private boolean isSafe(int row, int col, int[] solution) {
         for (int i = 0; i < col; i++) {
             if (solution[i] == row || Math.abs(solution[i] - row) == Math.abs(i - col)) {
@@ -227,6 +230,8 @@ public class EightQueensSimplified extends JFrame {
         return true;
     }
 
+    // ACTUAL ALGORITHM HERE - Non-Deterministic, randomly puts a queen on any
+    // safe block of current column
     private int[] constrainedLasVegas() {
         Random rand = new Random();
         int[] queens = new int[BOARD_SIZE];
@@ -261,7 +266,7 @@ public class EightQueensSimplified extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            EightQueensSimplified visualizer = new EightQueensSimplified();
+            EightQueens visualizer = new EightQueens();
             visualizer.setVisible(true);
         });
     }
