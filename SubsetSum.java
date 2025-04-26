@@ -1,7 +1,6 @@
+/*This is not part of the Eight Queens simulation */
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -45,7 +44,7 @@ public class SubsetSum extends JFrame {
     }
 
     public SubsetSum() {
-        setTitle("Subset Sum Problem Visualizer - Enhanced");
+        setTitle("Subset Sum Visualizer");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(950, 700);
         setLayout(new BorderLayout(10, 10));
@@ -67,7 +66,7 @@ public class SubsetSum extends JFrame {
         statusLabel.setFont(font);
 
         solveBtn = new JButton("Solve");
-        resetBtn = new JButton("Reset");
+        resetBtn = new JButton("Add Array");
         nextStepBtn = new JButton("Next Step");
         prevStepBtn = new JButton("Previous Step");
         solveBtn.setFont(font);
@@ -172,7 +171,7 @@ public class SubsetSum extends JFrame {
         isSolving = false;
 
         updateNumbersDisplay();
-        //resultArea.setText(getComplexityAnalysis());
+        resultArea.setText(getComplexityAnalysis());
         statusLabel.setText("Ready");
         statsLabel.setText("Steps: 0 | Solutions: 0");
         solveBtn.setEnabled(true);
